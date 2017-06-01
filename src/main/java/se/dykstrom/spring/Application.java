@@ -1,5 +1,6 @@
 package se.dykstrom.spring;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -20,9 +21,7 @@ class Application {
     }
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.scan("se.dykstrom.spring");
-        context.refresh();
+        ApplicationContext context = new AnnotationConfigApplicationContext("se.dykstrom.spring");
         Application application = context.getBean(Application.class);
         application.run();
     }
