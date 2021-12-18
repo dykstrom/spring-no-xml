@@ -1,8 +1,8 @@
 package se.dykstrom.spring;
 
-import javax.annotation.Resource;
+import org.springframework.stereotype.Component;
 
-@Resource
+@Component
 public class MessageProvider {
 
     String getMessage() {
