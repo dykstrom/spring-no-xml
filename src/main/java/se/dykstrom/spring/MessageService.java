@@ -1,8 +1,8 @@
 package se.dykstrom.spring;
 
-import org.springframework.stereotype.Service;
-
 import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
 
 @Service
 class MessageService {
@@ -10,7 +10,7 @@ class MessageService {
     private final MessageProvider messageProvider;
 
     @Inject
-    public MessageService(MessageProvider messageProvider) {
+    public MessageService(final MessageProvider messageProvider) {
         this.messageProvider = messageProvider;
     }
 

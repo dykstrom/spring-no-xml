@@ -1,27 +1,21 @@
 package se.dykstrom.spring;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
-public class MessageServiceTest {
+class MessageServiceTest {
 
     private static final String MESSAGE = "message";
 
-    @Mock
-    private MessageProvider messageProvider;
+    private final MessageProvider messageProvider = mock(MessageProvider.class);
 
-    @InjectMocks
-    private MessageService messageService;
+    private final MessageService messageService = new MessageService(messageProvider);
 
     @Test
-    public void shouldGetMessage() {
+    void shouldGetMessage() {
         // Given
         when(messageProvider.getMessage()).thenReturn(MESSAGE);
 
