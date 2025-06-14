@@ -21,8 +21,8 @@ class Application {
     }
 
     public static void main(String[] args) {
-        final var context = new AnnotationConfigApplicationContext("se.dykstrom.spring");
-        final var application = context.getBean(Application.class);
-        application.run();
+        try (var context = new AnnotationConfigApplicationContext("se.dykstrom.spring")) {
+            context.getBean(Application.class).run();
+        }
     }
 }
